@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'home/index'
 
   root 'home#index'
+
+  get 'about' => 'pages#about'
 
   resources :articles do
     resource :comments, only: [:create]
