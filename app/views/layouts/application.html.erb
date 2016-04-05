@@ -16,18 +16,40 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container header">
+  <div class="row">
+    <div class="col-xs-2">
+      <h2>Banner</h2>
+    </div>
+    <div class="col-xs-8">
+      <h2>Home Page</h2>
+    </div>
+
+  </div>
+</div>
+
 <div class="container">
-  <ul>
-    <li><%= link_to 'Home', root_path %></li>
-    <li><%= link_to 'Articles', articles_path %></li>
-    <li><%= link_to 'New Article', new_article_path %></li>
-    <li><%= link_to 'Questions', questions_path %></li>
-    <li><%= link_to 'New Question', new_question_path %></li>
-    <li><%= link_to 'About', about_path %></li>
-  </ul>
+  <br/>
+  <div class="row">
+    <div class="col-xs-2">
+      <ul class="nav nav-pills nav-stacked">
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%= link_to 'Articles', articles_path %></li>
+        <li><%= link_to 'New Article', new_article_path %></li>
+        <li><%= link_to 'Questions', questions_path %></li>
+        <li><%= link_to 'New Question', new_question_path %></li>
+        <li><%= link_to 'About', about_path %></li>
+      </ul>
+    </div>
 
-<%= yield %>
+    <div class="col-xs-8">
 
+    <%= yield %>
+
+    </div>
+
+    <div class="col-xs-2"></div>
+  </div>
 </div>
 </body>
 </html>
