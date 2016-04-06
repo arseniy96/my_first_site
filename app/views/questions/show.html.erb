@@ -1,4 +1,5 @@
 <h1><%= @question.question %></h1>
+<p>Written by <%= @question.username %></p>
 <p>
   <%= link_to 'Edit', edit_question_path(@question) %> | 
   <%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %>
@@ -6,7 +7,7 @@
 <h2>Comments:</h2>
 <% @question.comments.each do |comment| %>
     <p><%= comment.text %></p>
-    <p>Commented <%= comment.username %></p>
+    <p>Commented by <%= comment.username %></p>
     <hr/>
 <% end %>
 <br/>
@@ -16,10 +17,6 @@
     <p>
       <%= f.label :text %><br/>
       <%= f.text_area :text %>
-    </p>
-    <p>
-      <%= f.label :username %><br/>
-      <%= f.text_field :username %>
     </p>
     <p>
       <%= f.submit %>

@@ -1,8 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.text %></p>
+<p>Posted by <%= @article.username %></p>
 <h2>Comments:</h2>
 <% @article.comments.each do |comment| %>
     <p><%= comment.text %></p>
+    <p>Commented by <%= comment.username %></p>
     <hr/>
 <% end %>
 <br/>

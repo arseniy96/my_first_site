@@ -1,6 +1,7 @@
 <% @articles.each do |article| %>
     <h2><%= article.title %></h2>
     <p><%= article.text %></p>
+    <p>Posted by <%= article.username %></p>
     <p>
       <%= link_to 'Comments', article_path(article) %>
       | <%= link_to 'Edit', edit_article_path(article) %>
