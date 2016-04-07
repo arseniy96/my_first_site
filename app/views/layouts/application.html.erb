@@ -45,9 +45,9 @@
         <li><%= link_to 'About', about_path %></li>
         <li>
           <% if user_signed_in? %>
-              <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+              <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
           <% else %>
-              <%= link_to 'Войти', new_user_session_path %>
+              <%= link_to 'Sign in', new_user_session_path %>
           <% end %>
         </li>
       </ul>

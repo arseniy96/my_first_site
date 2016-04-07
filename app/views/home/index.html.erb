@@ -6,8 +6,8 @@
       <p><%= button_to 'Ask a Question', questions_path, method: :get, class: "btn btn-primary" %></p>
       <p>Хотите написать пост?</p>
       <p>
-        <%= button_to 'Sign in', questions_path, method: :get, class: "btn btn-primary" %>
-        <%= button_to 'Sign up', questions_path, method: :get, class: "btn btn-primary" %>
+        <%= button_to 'Sign in', new_user_session_path, method: :get, class: "btn btn-primary" %>
+        <%= button_to 'Sign up', new_user_registration_path, method: :get, class: "btn btn-primary" %>
       </p>
     </div>
   </div>
