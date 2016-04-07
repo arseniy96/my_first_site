@@ -32,6 +32,10 @@
   <br/>
   <div class="row">
     <div class="col-xs-2">
+      <!--for devise-->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <!--end for devise-->
       <ul class="nav nav-pills nav-stacked">
         <li><%= link_to 'Home', root_path %></li>
         <li><%= link_to 'Articles', articles_path %></li>
@@ -39,6 +43,13 @@
         <li><%= link_to 'Questions', questions_path %></li>
         <li><%= link_to 'New Question', new_question_path %></li>
         <li><%= link_to 'About', about_path %></li>
+        <li>
+          <% if user_signed_in? %>
+              <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+          <% else %>
+              <%= link_to 'Войти', new_user_session_path %>
+          <% end %>
+        </li>
       </ul>
     </div>
 
