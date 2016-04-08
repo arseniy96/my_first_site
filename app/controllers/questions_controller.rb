@@ -1,13 +1,16 @@
 class QuestionsController < ApplicationController
   def index
+    @page = 'Questions'
     @questions = Question.order('created_at DESC')
   end
 
   def show
+    @page = 'Question'
     @question = Question.find(params[:id])
   end
 
   def new
+    @page = 'New Question'
   end
 
   def create
@@ -20,6 +23,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @page = 'Edit Question'
     @question = Question.find(params[:id])
   end
 

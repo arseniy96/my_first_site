@@ -1,13 +1,16 @@
 class ArticlesController < ApplicationController
   def index
+    @page = 'Articles'
     @articles = Article.order('created_at DESC')
   end
 
   def show
+    @page = 'Article'
     @article = Article.find(params[:id])
   end
 
   def new
+    @page = 'New Article'
   end
 
   def create
@@ -20,6 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @page = 'Edit Article'
     @article = Article.find(params[:id])
   end
 
