@@ -29,6 +29,9 @@ class ArticlesController < ApplicationController
   def edit
     @page = 'Edit Article'
     @article = Article.find(params[:id])
+    if !(user_signed_in?) or current_user.username != @article.username
+      redirect_to article_path
+    end
   end
 
   def update

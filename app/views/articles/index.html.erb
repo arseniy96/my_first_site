@@ -4,7 +4,9 @@
     <p>Posted by <%= article.username %></p>
     <p>
       <%= link_to 'Comments', article_path(article) %>
+      <% if user_signed_in? && article.username == current_user.username %>
       | <%= link_to 'Edit', edit_article_path(article) %>
       | <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
     </p>
 <% end %>

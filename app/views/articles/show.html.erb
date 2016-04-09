@@ -9,13 +9,15 @@
 <% end %>
 <br/>
 
-<h2>Write a comment:</h2>
-<%= form_for ([@article, @article.comments.build]) do |f| %>
-    <p>
-      <%= f.label :text %><br/>
-      <%= f.text_area :text, class: "form-control", style: "width: 50%; height: 100px" %>
-    </p>
-    <p>
-      <%= f.submit class: "btn btn-primary" %>
-    </p>
+<% if user_signed_in? %>
+    <h2>Write a comment:</h2>
+    <%= form_for ([@article, @article.comments.build]) do |f| %>
+        <p>
+          <%= f.label :text %><br/>
+          <%= f.text_area :text, class: "form-control", style: "width: 50%; height: 100px" %>
+        </p>
+        <p>
+          <%= f.submit class: "btn btn-primary" %>
+        </p>
+    <% end %>
 <% end %>
