@@ -26,6 +26,9 @@ class QuestionsController < ApplicationController
   def edit
     @page = 'Edit Question'
     @question = Question.find(params[:id])
+    if !(user_signed_in?) or current_user.username != @question.username
+      redirect_to question_path
+    end
   end
 
   def update

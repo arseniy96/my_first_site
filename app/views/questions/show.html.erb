@@ -1,9 +1,11 @@
 <h1><%= @question.question %></h1>
 <p>Written by <%= @question.username %></p>
-<p>
-  <%= link_to 'Edit', edit_question_path(@question) %> | 
-  <%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %>
-</p>
+<% if user_signed_in? && @question.username == current_user.username %>
+    <p>
+      <%= link_to 'Edit', edit_question_path(@question) %> |
+      <%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %>
+    </p>
+<% end %>
 <h2>Comments:</h2>
 <% @question.comments.each do |comment| %>
     <p><%= comment.text %></p>
@@ -11,14 +13,15 @@
     <hr/>
 <% end %>
 <br/>
-
-<h2>Write a comment:</h2>
-<%= form_for ([@question, @question.comments.build]) do |f| %>
-    <p>
-      <%= f.label :text %><br/>
-      <%= f.text_area :text, class: "form-control", style: "width: 50%; height: 100px" %>
-    </p>
-    <p>
-      <%= f.submit class: "btn btn-primary" %>
-    </p>
+<% if user_signed_in? %>
+    <h2>Write a comment:</h2>
+    <%= form_for ([@question, @question.comments.build]) do |f| %>
+        <p>
+          <%= f.label :text %><br/>
+          <%= f.text_area :text, class: "form-control", style: "width: 50%; height: 100px" %>
+        </p>
+        <p>
+          <%= f.submit class: "btn btn-primary" %>
+        </p>
+    <% end %>
 <% end %>
