@@ -5,10 +5,14 @@
       <p>Хотите задать вопрос?</p>
       <p><%= button_to 'Ask a Question', new_question_path, method: :get, class: "btn btn-primary" %></p>
       <p>Хотите написать пост?</p>
-      <p>
-        <%= button_to 'Sign in', new_user_session_path, method: :get, class: "btn btn-primary" %>
-        <%= button_to 'Sign up', new_user_registration_path, method: :get, class: "btn btn-primary" %>
-      </p>
+      <% if user_signed_in? %>
+        <%= button_to 'Write an Article', new_article_path, method: :get, class: "btn btn-primary" %>
+      <% else %>
+        <p>
+          <%= button_to 'Sign in', new_user_session_path, method: :get, class: "btn btn-primary" %>
+          <%= button_to 'Sign up', new_user_registration_path, method: :get, class: "btn btn-primary" %>
+        </p>
+      <% end %>
     </div>
   </div>
   <div class="col-md-3"></div>
