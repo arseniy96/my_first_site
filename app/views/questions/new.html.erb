@@ -5,10 +5,12 @@
       <%= f.label :question %><br/>
       <%= f.text_area :question, class: "form-control", style: "width: 50%; height: 100px" %>
     </p>
+    <% if !(user_signed_in?) %>
     <p>
       <%= f.label :username %><br/>
       <%= f.text_field :username, class: "form-control", style: "width: 40%;" %>
     </p>
+    <% end %>
     <p>
       <%= f.submit class: "btn btn-primary" %>
     </p>
