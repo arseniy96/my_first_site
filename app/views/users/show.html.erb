@@ -1,0 +1,8 @@
+<h1><%= @user.username %></h1>
+<% @articles.each do |article| %>
+    <h2><%= article.title %></h2>
+    <p><%= article.text %></p>
+<% end %>
+<% @questions.each do |question| %>
+    <h3><%= question.question %></h3>
+<% end %>
