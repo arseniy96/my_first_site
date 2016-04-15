@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160413171335) do
     t.string   "title"
     t.text     "text"
     t.string   "username"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -30,18 +31,10 @@ ActiveRecord::Schema.define(version: 20160413171335) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "people", force: :cascade do |t|
-    t.string   "image"
-    t.integer  "users_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "people", ["users_id"], name: "index_people_on_users_id"
-
   create_table "questions", force: :cascade do |t|
     t.text     "question"
     t.string   "username"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
