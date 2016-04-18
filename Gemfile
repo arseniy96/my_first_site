@@ -51,4 +51,5 @@ gem 'paperclip'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
