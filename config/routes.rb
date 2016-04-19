@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   get 'about' => 'pages#about'
+  get 'users/:id/articles' => 'users#articles', as: 'articles_user'
+  get 'users/:id/questions' => 'users#questions', as: 'questions_user'
 
   resources :articles do
     resource :comments, only: [:create]

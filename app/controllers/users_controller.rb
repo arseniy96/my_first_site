@@ -25,6 +25,18 @@ class UsersController < ApplicationController
     end
   end
 
+  def articles
+    @user = User.find(params[:id])
+    @articles = Article.includes(:user)
+    @page = "#{@user.username} articles"
+  end
+
+  def questions
+    @user = User.find(params[:id])
+    @questions = Question.includes(:user)
+    @page = "#{@user.username} questions"
+  end
+
   private
 
   def user_params
