@@ -6,7 +6,7 @@
   <%= link_to 'Articles', articles_user_path  %> |
   <%= link_to 'Questions', questions_user_path  %>
 </p>
-<% if current_user.email == @user.email %>
+<% if user_signed_in? && current_user.email == @user.email %>
   <p>
     <%= link_to 'Edit', edit_user_path(current_user) %>
   </p>
