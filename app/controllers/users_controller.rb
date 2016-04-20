@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @page = 'Profile'
     @user = User.find(params[:id])
     @articles = Article.includes(:user)
     @questions = Question.includes(:user)
