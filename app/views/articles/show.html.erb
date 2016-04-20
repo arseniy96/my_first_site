@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.text %></p>
-<p>Posted by <%= @article.username %></p>
+<p>Posted by <%= link_to @article.username, user_path(@article.user_id) %></p>
 <h2>Comments:</h2>
 <% @article.comments.each do |comment| %>
     <p><%= comment.text %></p>
