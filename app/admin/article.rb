@@ -13,13 +13,6 @@ ActiveAdmin.register Article do
 #   permitted
 # end
 
-  def update
-    @article = Article.find(params[:id])
-    if @article.update(article_params)
-      redirect_to @article
-    else
-      render action: 'edit'
-    end
-  end
   permit_params :title, :text, :username
+
 end
