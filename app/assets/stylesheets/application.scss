@@ -7,3 +7,27 @@
 @import "pages";
 @import "questions";
 @import "users";
+
+body {
+  font-family: Georgia;
+  background-color: rgba(45, 210, 230, 0.16);
+}
+
+.header {
+  padding-bottom: 5px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #03f0e7, #16ebbf);
+}
+
+.menu {
+  background-color: #00696e;
+  background: linear-gradient(to right, #00878c, #00a5aa);
+  padding: 10px;
+  border-radius: 10px;
+  a {
+    color: #03e8eb;
+  }
+  a:hover {
+    color: #00696e;
+  }
+}
