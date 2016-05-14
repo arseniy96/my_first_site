@@ -9,17 +9,14 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
 
-  def new
-    @page = 'New Question'
-  end
-
   def create
+    @questions = Question.order('created_at DESC')
     @question = Question.new(question_params)
     @question.username = current_user.username
     if @question.save
       redirect_to @question
     else
-      render action: 'new'
+      render action: 'index'
     end
   end
 
