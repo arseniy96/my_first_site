@@ -12,7 +12,7 @@ class QuestionsController < ApplicationController
   def create
     @questions = Question.order('created_at DESC')
     @question = Question.new(question_params)
-    @question.username = current_user.username
+    @question.username = current_user.username if user_signed_in?
     if @question.save
       redirect_to @question
     else
