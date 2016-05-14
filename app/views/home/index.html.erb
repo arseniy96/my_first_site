@@ -1,7 +1,7 @@
 <div class="home">
-  <p>Хотите задать вопрос?</p>
+  <p>Do you want to ask a question?</p>
   <p><%= button_to 'Ask a Question', new_question_path, method: :get, class: "btn btn-info" %></p>
-  <p>Хотите написать пост?</p>
+  <p>Do you want to write a post?</p>
   <% if user_signed_in? %>
     <%= button_to 'Write an Article', new_article_path, method: :get, class: "btn btn-info" %>
   <% else %>
