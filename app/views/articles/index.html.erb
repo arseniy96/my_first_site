@@ -1,8 +1,8 @@
 <% @articles.each do |article| %>
     <h2><%= article.title %></h2>
     <p><%= article.text %></p>
-    <p>Posted by <%= article.username %></p>
-    <p>
+    <p class="attributes">Posted by <%= article.username %></p>
+    <p class="attributes">
       <%= link_to 'Comments', article_path(article) %>
       <% if user_signed_in? && article.username == current_user.username %>
       | <%= link_to 'Edit', edit_article_path(article) %>

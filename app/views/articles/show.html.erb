@@ -1,10 +1,10 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.text %></p>
-<p>Posted by <%= link_to @article.username, user_path(@article.user_id) %></p>
+<p class="attributes">Posted by <%= link_to @article.username, user_path(@article.user_id) %></p>
 <h2>Comments:</h2>
 <% @article.comments.each do |comment| %>
     <p><%= comment.text %></p>
-    <p>Commented by <%= comment.username %></p>
+    <p class="attributes">Commented by <%= comment.username %></p>
     <hr/>
 <% end %>
 <br/>
