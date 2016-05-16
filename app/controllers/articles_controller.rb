@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
     if @article.save
       redirect_to @article
     else
+      @error = @article.errors.full_messages.first
       render action: 'new'
     end
   end
@@ -40,6 +41,7 @@ class ArticlesController < ApplicationController
     if @article.update(article_params)
       redirect_to @article
     else
+      @error = @article.errors.full_messages.first
       render action: 'edit'
     end
   end

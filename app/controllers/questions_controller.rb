@@ -16,6 +16,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question
     else
+      @error = @question.errors.full_messages.first
       render action: 'index'
     end
   end
@@ -33,6 +34,7 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to @question
     else
+      @error = @question.errors.full_messages.first
       render action: 'edit'
     end
   end
