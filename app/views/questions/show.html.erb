@@ -1,4 +1,4 @@
-<h1><%= @question.question %></h1>
+<h3><%= simple_format(@question.question) %></h3>
 <p class="attributes">Written by <%= @question.username %></p>
 <% if user_signed_in? && @question.username == current_user.username %>
     <p class="attributes">
