@@ -8,7 +8,7 @@
 <% end %>
 <h2>Comments:</h2>
 <% @question.comments.each do |comment| %>
-    <p><%= comment.text %></p>
+    <p><%= simple_format(comment.text) %></p>
     <p class="attributes">Commented by <%= comment.username %></p>
     <hr/>
 <% end %>
