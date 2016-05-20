@@ -6,7 +6,7 @@
       <%= link_to 'Delete', question_path(@question), method: :delete, data: {confirm: 'Are you sure?'} %>
     </p>
 <% end %>
-<h2>Comments:</h2>
+<h2>Answers (<%= @question.comments.count %>):</h2>
 <% @question.comments.each do |comment| %>
     <p><%= simple_format(comment.text) %></p>
     <p class="attributes">Commented by <%= comment.username %></p>
@@ -14,7 +14,7 @@
 <% end %>
 <br/>
 <% if user_signed_in? %>
-    <h2>Write a comment:</h2>
+    <h2>Write an answer:</h2>
     <%= form_for ([@question, @question.comments.build]) do |f| %>
         <p>
           <%= f.label :text %><br/>

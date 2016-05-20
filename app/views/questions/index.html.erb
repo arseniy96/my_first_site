@@ -19,5 +19,5 @@
 <% @questions.each do |question| %>
     <h2><%= simple_format(question.question) %></h2>
     <p class="attributes">Written by <%= question.username %></p>
-    <p><%= link_to 'Answers', question_path(question) %></p>
+    <p><%= link_to 'Answers', question_path(question) %> (<%= question.comments.count %>)</p>
 <% end %>
