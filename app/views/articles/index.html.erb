@@ -1,6 +1,6 @@
 <% @articles.each do |article| %>
     <h2><%= article.title %></h2>
-    <p><%= article.text %></p>
+    <p><%= simple_format(article.text) %></p>
     <p class="attributes">Posted by <%= article.username %></p>
     <p class="attributes">
       <%= link_to 'Comments', article_path(article) %> (<%= article.comments.count %>)
