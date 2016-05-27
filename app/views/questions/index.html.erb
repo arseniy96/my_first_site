@@ -12,6 +12,10 @@
         </p>
     <% end %>
     <p>
+      <%= f.label :category %><br/>
+      <%= f.select(:category, Category.all.collect {|x| [x.category]}, {}, {class: "form-control", style: "width: 30%;"}) %>
+    </p>
+    <p>
       <%= f.submit class: "btn btn-info" %>
     </p>
 <% end %>

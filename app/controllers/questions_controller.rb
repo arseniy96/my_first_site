@@ -49,6 +49,6 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question, :username)
+    params.require(:question).permit(:question, :username, category: [])
   end
 end
