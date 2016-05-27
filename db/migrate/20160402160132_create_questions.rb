@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration
       t.text :question
       t.string :username
       t.references :user
+      t.references :category
 
       t.timestamps null: false
     end
