@@ -12,7 +12,7 @@
         </p>
     <% end %>
     <p>
-      <%= f.label :category %><br/>
+      <%= f.label :category_id %><br/>
       <%= f.collection_select :category_id, Category.all, :id, :category, {}, {class: "form-control", style: "width: 30%;"} %>
     </p>
     <p>
