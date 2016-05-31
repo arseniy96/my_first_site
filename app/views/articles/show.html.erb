@@ -1,5 +1,6 @@
 <h1><%= @article.title %></h1>
 <p><%= simple_format(@article.text) %></p>
+<p>Category: <%= @article.category.category %></p>
 <p class="attributes">Posted by <%= link_to @article.username, user_path(@article.user_id) %></p>
 <h2>Comments (<%= @article.comments.count %>):</h2>
 <% @article.comments.each do |comment| %>
