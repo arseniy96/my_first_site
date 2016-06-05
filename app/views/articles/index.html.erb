@@ -1,3 +1,8 @@
+<h2>Categories: </h2>
+<% @categories.each do |category| %>
+    <p><%= link_to category.category, articles_category_path(category) %></p>
+<% end %>
+
 <% @articles.each do |article| %>
     <h2><%= article.title %></h2>
     <p><%= simple_format(article.text) %></p>

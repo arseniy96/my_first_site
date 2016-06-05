@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
   def index
     @page = 'Articles'
     @articles = Article.order('created_at DESC')
+    @categories = Category.all
   end
 
   def show
