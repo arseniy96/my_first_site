@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/:id/articles' => 'users#articles', as: 'articles_user'
   get 'users/:id/questions' => 'users#questions', as: 'questions_user'
   get 'categories/:id/articles' => 'categories#articles', as: 'articles_category'
+  get 'categories/:id/questions' => 'categories#questions', as: 'questions_category'
 
   resources :articles do
     resource :comments, only: [:create]
