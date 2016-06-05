@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
   def index
     @page = 'Questions'
     @questions = Question.order('created_at DESC')
+    @categories = Category.all
   end
 
   def show

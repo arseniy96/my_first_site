@@ -1,3 +1,8 @@
+<h2>Categories: </h2>
+<% @categories.each do |category| %>
+    <p><%= link_to category.category, questions_category_path(category) %></p>
+<% end %>
+
 <h1>Ask your question:</h1>
 
 <%= form_for :question, url: questions_path do |f| %>
