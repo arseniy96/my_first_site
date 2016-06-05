@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   get 'about' => 'pages#about'
   get 'users/:id/articles' => 'users#articles', as: 'articles_user'
   get 'users/:id/questions' => 'users#questions', as: 'questions_user'
+  get 'categories/:id/articles' => 'categories#articles', as: 'articles_category'
 
   resources :articles do
     resource :comments, only: [:create]
   end
+
+  resources :categories, only: [:index]
 
   resources :questions do
     resource :comments, only: [:create]
