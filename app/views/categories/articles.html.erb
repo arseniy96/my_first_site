@@ -2,7 +2,7 @@
 <h2>Articles:</h2>
 <% @articles.each do |article| %>
     <h3><%= article.title %></h3>
-    <p><%= article.text %></p>
+    <p><%= simple_format(article.text) %></p>
     <p class="attributes">Posted by <%= article.username %></p>
     <p class="attributes">
       <%= link_to 'Comments', article_path(article) %> (<%= article.comments.count %>)
