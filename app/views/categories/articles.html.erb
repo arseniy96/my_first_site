@@ -3,4 +3,12 @@
 <% @articles.each do |article| %>
     <h3><%= article.title %></h3>
     <p><%= article.text %></p>
+    <p class="attributes">Posted by <%= article.username %></p>
+    <p class="attributes">
+      <%= link_to 'Comments', article_path(article) %> (<%= article.comments.count %>)
+      <% if user_signed_in? && article.username == current_user.username %>
+          | <%= link_to 'Edit', edit_article_path(article) %>
+          | <%= link_to 'Delete', article_path(article), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <% end %>
+    </p>
 <% end %>
