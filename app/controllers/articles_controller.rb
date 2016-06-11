@@ -11,7 +11,6 @@ class ArticlesController < ApplicationController
   def show
     @page = 'Article'
     @article = Article.find(params[:id])
-    @article.user_id = current_user.id
   end
 
   def new
@@ -21,6 +20,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.username = current_user.username
+    @article.user_id = current_user.id
     if @article.save
       redirect_to @article
     else
