@@ -1,5 +1,8 @@
 <h2>Category: <%= @category.category %></h2>
-<h3>Qquestions:</h3>
+<h3>Qquestions:</h3><hr/>
 <% @questions.each do |question| %>
-    <h4><%= question.question %></h4>
+    <h4><%= simple_format(question.question) %></h4>
+    <p>Category: <%= question.category.category %></p>
+    <p class="attributes">Written by <%= question.username %></p>
+    <p><%= link_to 'Answers', question_path(question) %> (<%= question.comments.count %>)</p>
 <% end %>
