@@ -13,6 +13,10 @@ Rails.application.routes.draw do
 
   resources :articles do
     resource :comments, only: [:create]
+    member do
+      put 'like', to: 'articles#like'
+      put 'dislike', to: 'articles#dislike'
+    end
   end
 
   resources :categories, only: [:index]

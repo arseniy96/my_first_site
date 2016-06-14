@@ -49,6 +49,7 @@ gem 'devise'
 gem 'paperclip'
 gem 'activeadmin', github: 'activeadmin'
 gem 'bootstrap-sass'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'

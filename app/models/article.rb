@@ -6,4 +6,5 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: {maximum: 140}
   validates :text, presence: true, length: {maximum: 4000}
 
+  acts_as_votable
 end

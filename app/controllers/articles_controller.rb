@@ -54,6 +54,18 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
   end
 
+  def like
+    @article = Article.find(params[:id])
+    @article.liked_by current_user
+    redirect_to @article
+  end
+
+  def dislike
+    @article = Article.find(params[:id])
+    @article.downvote_from current_user
+    redirect_to @article
+  end
+
   private
 
   def article_params
