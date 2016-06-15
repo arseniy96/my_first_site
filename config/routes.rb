@@ -23,6 +23,10 @@ Rails.application.routes.draw do
 
   resources :questions do
     resource :comments, only: [:create]
+    member do
+      put 'like', to: 'questions#like'
+      put 'dislike', to: 'questions#dislike'
+    end
   end
 
   resources :users
