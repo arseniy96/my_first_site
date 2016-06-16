@@ -20,6 +20,20 @@ class CommentsController < ApplicationController
     end
   end
 
+  def like
+    @comment = Comment.find(params[:id])
+    @comment.liked_by current_user
+    @article = Article.find(params[:article_id])
+    redirect_to @article
+  end
+
+  def dislike
+    @comment = Comment.find(params[:id])
+    @comment.downvote_from current_user
+    @article = Article.find(params[:article_id])
+    redirect_to @article
+  end
+
   private
 
   def comments_params
