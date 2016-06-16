@@ -27,7 +27,12 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
 
   resources :questions do
-    resource :comments, only: [:create]
+    resource :comments, only: [:create] do
+      member do
+        put ':id/like', to: 'comments#like', as: 'like'
+        put ':id/dislike', to: 'comments#dislike', as: 'dislike'
+      end
+    end
     member do
       put 'like', to: 'questions#like'
       put 'dislike', to: 'questions#dislike'

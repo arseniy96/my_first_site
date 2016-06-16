@@ -16,6 +16,11 @@
 <% @question.comments.each do |comment| %>
     <p><%= simple_format(comment.text) %></p>
     <p class="attributes">Commented by <%= comment.username %></p>
+    <p>Like <%= comment.get_likes.size %></p>
+    <p>
+      <%= link_to "Like", like_question_comments_path(@question, comment), method: :put %>
+      <%= link_to "Dislike", dislike_question_comments_path(@question, comment), method: :put %>
+    </p>
     <hr/>
 <% end %>
 <br/>
