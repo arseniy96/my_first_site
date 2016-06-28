@@ -9,8 +9,11 @@
 <% end %>
 <p>Like <%= @question.get_likes.size %></p>
 <p>
-  <%= link_to "Like", like_question_path(@question), method: :put %>
-  <%= link_to "Dislike", dislike_question_path(@question), method: :put %>
+  <% if current_user.liked? @question %>
+    <%= link_to "Dislike", dislike_question_path(@question), method: :put %>
+  <% else %>
+    <%= link_to "Like", like_question_path(@question), method: :put %>
+  <% end %>
 </p>
 <h2>Answers (<%= @question.comments.count %>):</h2>
 <% @question.comments.each do |comment| %>
@@ -18,8 +21,11 @@
     <p class="attributes">Commented by <%= comment.username %></p>
     <p>Like <%= comment.get_likes.size %></p>
     <p>
-      <%= link_to "Like", like_question_comments_path(@question, comment), method: :put %>
-      <%= link_to "Dislike", dislike_question_comments_path(@question, comment), method: :put %>
+      <% if current_user.liked? comment %>
+        <%= link_to "Dislike", dislike_question_comments_path(@question, comment), method: :put %>
+      <% else %>
+        <%= link_to "Like", like_question_comments_path(@question, comment), method: :put %>
+      <% end %>
     </p>
     <hr/>
 <% end %>
