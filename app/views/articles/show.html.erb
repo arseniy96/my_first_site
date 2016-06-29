@@ -2,12 +2,12 @@
 <p><%= simple_format(@article.text) %></p>
 <p>Category: <%= @article.category.category %></p>
 <p class="attributes">Posted by <%= link_to @article.username, user_path(@article.user_id) %></p>
-<p>Like <%= @article.get_likes.size %></p>
 <p>
+  Like <%= @article.get_likes.size %> 
   <% if current_user.liked? @article %>
-    <%= link_to "Dislike", dislike_article_path(@article), method: :put %>
+    <%= link_to image_tag('dislike.png', size: '20x20'), dislike_article_path(@article), method: :put %>
   <% else %>
-    <%= link_to "Like", like_article_path(@article), method: :put %>
+    <%= link_to image_tag('like.png', size: '20x20'), like_article_path(@article), method: :put %>
 
   <% end %>
 </p>
@@ -15,12 +15,12 @@
 <% @article.comments.each do |comment| %>
     <p><%= simple_format(comment.text) %></p>
     <p class="attributes">Commented by <%= comment.username %></p>
-    <p>Like <%= comment.get_likes.size %></p>
     <p>
+      Like <%= comment.get_likes.size %>
       <% if current_user.liked? comment %>
-        <%= link_to "Dislike", dislike_article_comments_path(@article, comment), method: :put %>
+        <%= link_to image_tag('dislike.png', size: '20x20'), dislike_article_comments_path(@article, comment), method: :put %>
       <% else %>
-        <%= link_to "Like", like_article_comments_path(@article, comment), method: :put %>
+        <%= link_to image_tag('like.png', size: '20x20'), like_article_comments_path(@article, comment), method: :put %>
       <% end %>
     </p>
     <hr/>
